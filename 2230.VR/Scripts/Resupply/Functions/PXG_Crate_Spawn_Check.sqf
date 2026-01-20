@@ -56,6 +56,7 @@ if (count _nearVehicles > 0) then {
 			};
 		};
 
+		case "Infantry Automatic Rifle";
 		case "Infantry Medium Machine Gun";
 		case "Infantry Standard Ammo":
 		{
@@ -104,6 +105,7 @@ if (count _nearVehicles > 0) then {
 		_track setDir getDir _spawnPosition;
 	};
 
+	case "Infantry Automatic Rifle";
 	case "Infantry Medium Machine Gun";
 	case "Infantry Standard Ammo":
 	{
