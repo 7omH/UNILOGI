@@ -9,10 +9,10 @@ _indexFaction deleteAt 1;
 _faction = tvText [451501, _indexFaction];
 
 _variantArray = _variant splitString " ";
-_variantCamo = _variantArray #0;
+_variantType = _variantArray #0;
 
 _suppliesScriptPath = "Scripts\Factions\";
-_suppliesScriptPath = _suppliesScriptPath + _faction +"\supplies_" + _variantCamo + ".sqf";
+_suppliesScriptPath = _suppliesScriptPath + _faction +"\supplies_" + _variantType + ".sqf";
 
 _suppliesArray = call compile preprocessfile _suppliesScriptPath;
 
