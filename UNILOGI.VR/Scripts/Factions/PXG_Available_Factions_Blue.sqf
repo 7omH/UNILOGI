@@ -4,7 +4,7 @@
 
 
 
-//_univar = getVariable 
+//_univar = getVariable untafFaction
 
 _univar = 3;
 

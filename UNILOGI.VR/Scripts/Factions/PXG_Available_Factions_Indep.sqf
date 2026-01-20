@@ -6,5 +6,4 @@ _availableFactions = [
 	"24",
 	"25"
 ];
-
 _availableFactions

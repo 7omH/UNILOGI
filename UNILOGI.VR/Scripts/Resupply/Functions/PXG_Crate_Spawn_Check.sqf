@@ -56,84 +56,23 @@ if (count _nearVehicles > 0) then {
 			};
 		};
 
-		case "LAT Resupply";
-		case "MAT Resupply";
-		case "MAT Resupply (HEAT)";
-		case "MAT Resupply (Misc.)";
-		case "HAT Resupply";
-		case "AA Resupply":
+		case "Infantry Medium Machine Gun";
+		case "Infantry Standard Ammo":
 		{
-			if (((_vehicle getVariable "ace_cargo_space") - 2) >= 0) then {
-				[_supplyData, "Box_NATO_WpsLaunch_F", 2, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
-				hint "Loaded crate into vehicle";
-			} else {
-				hint "Could not load crate into vehicle";
-			};
-		};
-
-		case "40mm Heavy";
-		case "40mm Grenades";
-		case "Hand Grenades":
-		{	
 			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Box_NATO_Grenades_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
+				[_supplyData, "Box_UNICrate_Ammo_Green_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
 				hint "Loaded crate into vehicle";
 			} else {
 				hint "Could not load crate into vehicle";
 			};
 		};
 
-		case "40mm Flares";
-		case "40mm Smoke Rounds";
-		case "Smoke Grenades";
-		case "Stun Grenades":
-		{		
+		case "UGL Smoke & Lethal rounds";
+		case "Signal Flares, Hand Smokes & Chemlights";		
+		case "Hand Grenades, Lethal & Non-Lethal":
+		{
 			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Box_NATO_Support_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
-				hint "Loaded crate into vehicle";
-			} else {
-				hint "Could not load crate into vehicle";
-			};
-		};
-
-		case "Misc. Medical Supplies";
-		case "Autoinjectors";
-		case "Bandages";
-		case "Blood IVs":
-		{	
-			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Land_PlasticCase_01_medium_gray_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
-				hint "Loaded crate into vehicle";
-			} else {
-				hint "Could not load crate into vehicle";
-			};
-		};
-
-		case "Breaching Charges";
-		case "Explosives":
-		{		
-			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Box_NATO_AmmoOrd_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
-				hint "Loaded crate into vehicle";
-			} else {
-				hint "Could not load crate into vehicle";
-			};
-		};
-
-		case "Squad Resupply":
-		{		
-			if (((_vehicle getVariable "ace_cargo_space") - 2) >= 0) then {
-				[_supplyData, "Box_NATO_WpsSpecial_F", 2, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
-				hint "Loaded crate into vehicle";
-			} else {
-				hint "Could not load crate into vehicle";
-			};
-		};
-
-		case "Parachutes":
-		{	
-			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Box_NATO_Equip_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
+				[_supplyData, "Box_UNICrate_Grenades_Green_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
 				hint "Loaded crate into vehicle";
 			} else {
 				hint "Could not load crate into vehicle";
@@ -142,7 +81,7 @@ if (count _nearVehicles > 0) then {
 
 		default {		
 			if (((_vehicle getVariable "ace_cargo_space") - 1) >= 0) then {
-				[_supplyData, "Box_NATO_Ammo_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
+				[_supplyData, "Box_UNICrate_Equip_Green_F", 1, _vehicle, _spawnPosition] call compile preprocessFileLineNumbers "Scripts\Resupply\Functions\PXG_Crate_Spawn_VehicleLoad.sqf";
 				hint "Loaded crate into vehicle";
 			} else {
 				hint "Could not load crate into vehicle";
@@ -165,35 +104,10 @@ if (count _nearVehicles > 0) then {
 		_track setDir getDir _spawnPosition;
 	};
 
-	case "LAT Resupply";
-	case "MAT Resupply";
-	case "MAT Resupply (HEAT)";
-	case "MAT Resupply (Misc.)";
-	case "HAT Resupply";
-	case "AA Resupply":
+	case "Infantry Medium Machine Gun";
+	case "Infantry Standard Ammo":
 	{
-		private _crate = createVehicle["Box_NATO_WpsLaunch_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
-		_crate setDir getDir _spawnPosition;
-		_crate addEventHandler ["HandleDamage", {0}];
-		_crate allowDamage false;
-		_crate setDamage 0;
-		
-		//Remove default contents from crate
-		clearItemCargoGlobal _crate;
-		clearMagazineCargoGlobal _crate;
-		clearWeaponCargoGlobal _crate;
-		clearBackpackCargoGlobal _crate;
-
-		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
-		[_crate, 2] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
-	};
-
-	case "40mm Heavy";
-	case "40mm Grenades";
-	case "Hand Grenades":
-	{
-		private _crate = createVehicle["Box_NATO_Grenades_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
+		private _crate = createVehicle["Box_UNICrate_Ammo_Green_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
 		_crate setDir getDir _spawnPosition;
 		_crate addEventHandler ["HandleDamage", {0}];
 		_crate allowDamage false;
@@ -207,15 +121,15 @@ if (count _nearVehicles > 0) then {
 
 		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
 		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
+		[_crate, true, [0,1,1], 0] remoteExec ["ace_dragging_fnc_setCarryable"];
 	};
 
-	case "40mm Flares";
-	case "40mm Smoke Rounds";
-	case "Smoke Grenades";
-	case "Stun Grenades":
+	
+	case "UGL Smoke & Lethal rounds";
+	case "Signal Flares, Hand Smokes & Chemlights";
+	case "Hand Grenades, Lethal & Non-Lethal":
 	{
-		private _crate = createVehicle["Box_NATO_Support_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
+		private _crate = createVehicle["Box_UNICrate_Grenades_Green_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
 		_crate setDir getDir _spawnPosition;
 		_crate addEventHandler ["HandleDamage", {0}];
 		_crate allowDamage false;
@@ -229,91 +143,13 @@ if (count _nearVehicles > 0) then {
 
 		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
 		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
+		[_crate, true, [0,1,1], 0] remoteExec ["ace_dragging_fnc_setCarryable"];
 	};
 
-	case "Misc. Medical Supplies";
-	case "Autoinjectors";
-	case "Bandages";
-	case "Blood IVs":
-	{
-		private _crate = createVehicle["Land_PlasticCase_01_medium_gray_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
-		_crate setDir getDir _spawnPosition;
-		_crate addEventHandler ["HandleDamage", {0}];
-		_crate allowDamage false;
-		_crate setDamage 0;
-		
-		//Remove default contents from crate
-		clearItemCargoGlobal _crate;
-		clearMagazineCargoGlobal _crate;
-		clearWeaponCargoGlobal _crate;
-		clearBackpackCargoGlobal _crate;
 
-		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
-		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
-	};
-
-	case "Breaching Charges";
-	case "Explosives":
-	{
-		private _crate = createVehicle["Box_NATO_AmmoOrd_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
-		_crate setDir getDir _spawnPosition;
-		_crate addEventHandler ["HandleDamage", {0}];
-		_crate allowDamage false;
-		_crate setDamage 0;
-		
-		//Remove default contents from crate
-		clearItemCargoGlobal _crate;
-		clearMagazineCargoGlobal _crate;
-		clearWeaponCargoGlobal _crate;
-		clearBackpackCargoGlobal _crate;
-
-		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
-		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
-	};
-
-	case "Squad Resupply":
-	{
-		private _crate = createVehicle["Box_NATO_WpsSpecial_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
-		_crate setDir getDir _spawnPosition;
-		_crate addEventHandler ["HandleDamage", {0}];
-		_crate allowDamage false;
-		_crate setDamage 0;
-		
-		//Remove default contents from crate
-		clearItemCargoGlobal _crate;
-		clearMagazineCargoGlobal _crate;
-		clearWeaponCargoGlobal _crate;
-		clearBackpackCargoGlobal _crate;
-
-		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
-		[_crate, 2] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
-	};
-
-	case "Parachutes":
-	{
-		private _crate = createVehicle["Box_NATO_Equip_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
-		_crate setDir getDir _spawnPosition;
-		_crate addEventHandler ["HandleDamage", {0}];
-		_crate allowDamage false;
-		_crate setDamage 0;
-		
-		//Remove default contents from crate
-		clearItemCargoGlobal _crate;
-		clearMagazineCargoGlobal _crate;
-		clearWeaponCargoGlobal _crate;
-		clearBackpackCargoGlobal _crate;
-
-		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
-		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
-	};
 
 	default {
-		private _crate = createVehicle["Box_NATO_Ammo_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
+		private _crate = createVehicle["Box_UNICrate_Equip_Green_F", getPosATL _spawnPosition, [], 0, "CAN_COLLIDE"];
 		_crate setDir getDir _spawnPosition;
 		_crate addEventHandler ["HandleDamage", {0}];
 		_crate allowDamage false;
@@ -327,7 +163,7 @@ if (count _nearVehicles > 0) then {
 
 		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
 		[_crate, 1] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
+		[_crate, true, [0,1,1], 0] remoteExec ["ace_dragging_fnc_setCarryable"];
 		};
 	};
 };
