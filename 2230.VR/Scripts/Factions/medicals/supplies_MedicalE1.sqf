@@ -4,12 +4,9 @@ _resupplyAvailable = [
 			["kat_Painkiller", 20],
 			["kat_Carbonate", 10],
 			["kat_atropine", 30],
-			["kat_EACA", 50],
-			["kat_fentanyl", 20],
 			["kat_nitroglycerin", 50],
 			["kat_norepinephrine", 30],
 			["kat_phenylephrine", 50],
-			["kat_TXA", 100],
 			["ACE_packingBandage", 100],
 			["ACE_splint", 20],
 			["ACE_morphine", 50],
@@ -29,8 +26,6 @@ _resupplyAvailable = [
 			["kat_Carbonate", 20],
 			["kat_Painkiller", 20],
 			["kat_atropine", 30],
-			["kat_EACA", 50],
-			["kat_fentanyl", 20],
 			["kat_nitroglycerin", 30],
 			["kat_norepinephrine", 30],
 			["kat_phenylephrine", 30],
@@ -45,7 +40,6 @@ _resupplyAvailable = [
 			["ACE_bodyBag", 15],
 			["kat_IV_16", 50],
 			["ACE_elasticBandage", 300],
-			["kat_TXA", 50],
 			["ACE_tourniquet", 50]
 		]
 	],
@@ -77,8 +71,6 @@ _resupplyAvailable = [
 			["kat_Carbonate", 20],
 			["kat_Painkiller", 20],
 			["kat_atropine", 30],
-			["kat_EACA", 50],
-			["kat_fentanyl", 20],
 			["kat_nitroglycerin", 30],
 			["kat_norepinephrine", 30],
 			["kat_phenylephrine", 30],
@@ -93,7 +85,6 @@ _resupplyAvailable = [
 			["ACE_bodyBag", 15],
 			["kat_IV_16", 50],
 			["ACE_elasticBandage", 300],
-			["kat_TXA", 50],
 			["ACE_tourniquet", 50]
 		]
 	],
@@ -106,6 +97,6 @@ _resupplyAvailable = [
 _resupplyAvailable
 /*
 
-Hand Grenades", Lethal & Non-Lethal
+Hand Grenades, Lethal & Non-Lethal
 
 

@@ -3,9 +3,11 @@ _resupplyAvailable = [
 		[
 			["kat_Painkiller", 20],
 			["kat_Carbonate", 10],
+			["kat_amiodarone", 30],
 			["kat_atropine", 30],
 			["kat_EACA", 50],
 			["kat_fentanyl", 20],
+			["kat_lidocaine", 30],
 			["kat_nitroglycerin", 50],
 			["kat_norepinephrine", 30],
 			["kat_phenylephrine", 50],
@@ -19,9 +21,11 @@ _resupplyAvailable = [
 			["ACE_personalAidKit", 30],
 			["ACE_surgicalKit", 1],
 			["ACE_bodyBag", 25],
+			["kat_larynx", 50],
 			["kat_IV_16", 50],
 			["kat_IO_FAST", 50],
-			["ACE_elasticBandage", 100]
+			["ACE_elasticBandage", 100],
+			["kat_Pulseoximeter", 5]
 		]
 	],
 	["Platoon Med Resupply",
@@ -43,8 +47,10 @@ _resupplyAvailable = [
 			["ACE_personalAidKit", 25],
 			["ACE_surgicalKit", 1],
 			["ACE_bodyBag", 15],
+			["kat_larynx", 50],
 			["kat_IV_16", 50],
 			["ACE_elasticBandage", 300],
+			["kat_Pulseoximeter", 5],
 			["kat_TXA", 50],
 			["ACE_tourniquet", 50]
 		]
@@ -52,7 +58,7 @@ _resupplyAvailable = [
 	["Squad Med Resupply",
 		[
 			["kat_Carbonate", 10],
-			["kat_Painkiller", 30],
+			["kat_Painkiller", 20],
 			["ACE_morphine", 25],
 			["ACE_epinephrine", 25],
 			["ACE_bloodIV", 15],
@@ -65,10 +71,12 @@ _resupplyAvailable = [
 			["ACE_personalAidKit", 15],
 			["KAT_Empty_bloodIV_500", 5],
 			["kat_IV_16", 20],
-			["kat_nitroglycerin", 20],
-			["kat_norepinephrine", 20],
+			["kat_nitroglycerin", 30],
+			["kat_norepinephrine", 10],
 			["kat_phenylephrine", 20],
+			["kat_Pulseoximeter", 2],
 			["ACE_surgicalKit", 1],
+			["kat_larynx", 15],
 			["kat_guedel", 15]
 		]
 	],
@@ -91,8 +99,10 @@ _resupplyAvailable = [
 			["ACE_personalAidKit", 25],
 			["ACE_surgicalKit", 1],
 			["ACE_bodyBag", 15],
+			["kat_larynx", 50],
 			["kat_IV_16", 50],
 			["ACE_elasticBandage", 300],
+			["kat_Pulseoximeter", 5],
 			["kat_TXA", 50],
 			["ACE_tourniquet", 50]
 		]
