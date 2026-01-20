@@ -16,7 +16,7 @@ switch(_supplyData) do {
 
 		[_crate] call compile preprocessFile "Scripts\Resupply\Functions\PXG_Crate_Fill.sqf";
 		[_crate, _crateCargoSize] call ace_cargo_fnc_setSize;
-		[_crate, true, [0,1,1], 0, true] remoteExec ["ace_dragging_fnc_setCarryable"];
+		[_crate, true, [0,1,1], 0] remoteExec ["ace_dragging_fnc_setCarryable"];
 		[_crate, _vehicleLoad, true] call ace_cargo_fnc_loadItem;
 	};
 };
