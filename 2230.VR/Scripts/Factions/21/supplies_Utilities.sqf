@@ -36,8 +36,8 @@ _resupplyAvailable = [
 	],
 	["Parachutes","Box_UNICrate_CargoNet_Green_F", 
 		[
-			["vn_m72",8],
-			["vn_m72_mag",8]
+			["B_Parachute",10],
+			["ACE_NonSteerableParachute",10]
 		]
 	]
 ];
